@@ -14,8 +14,8 @@ public class Reply {
     
     private String message;
     
-    @Column(name = "cration_date")
-    private LocalDateTime crationDate;
+    @Column(name = "creation_date")
+    private LocalDateTime creationDate;
     
     private Boolean solution;
     
@@ -30,10 +30,10 @@ public class Reply {
     public Reply () {
     }
     
-    public Reply (Long id, String message, LocalDateTime crationDate, Boolean solution, User author, Topic topic) {
+    public Reply (Long id, String message, LocalDateTime creationDate, Boolean solution, User author, Topic topic) {
         this.id = id;
         this.message = message;
-        this.crationDate = crationDate;
+        this.creationDate = creationDate;
         this.solution = solution;
         this.author = author;
         this.topic = topic;
@@ -56,11 +56,11 @@ public class Reply {
     }
     
     public LocalDateTime getCrationDate () {
-        return crationDate;
+        return creationDate;
     }
     
-    public void setCrationDate (LocalDateTime crationDate) {
-        this.crationDate = crationDate;
+    public void setCrationDate (LocalDateTime creationDate) {
+        this.creationDate = creationDate;
     }
     
     public Boolean getSolution () {

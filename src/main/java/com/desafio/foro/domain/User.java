@@ -1,7 +1,8 @@
 package com.desafio.foro.domain;
 
 import jakarta.persistence.*;
-import org.springframework.context.annotation.Profile;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Set;
 
@@ -12,20 +13,23 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @NotBlank
     private String name;
     
+    @Email
+    @NotBlank
     @Column(unique = true)
     private String email;
     
     private String password;
     
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "user_profile",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "profile_id")
     )
-    private Set<Profile> profile;
+    private Set<com.desafio.foro.domain.Profile> profiles;
     
     
     public User () {
@@ -70,12 +74,12 @@ public class User {
         this.password = password;
     }
     
-    public Set<Profile> getProfile () {
-        return profile;
+    public Set<Profile> getProfiles () {
+        return profiles;
     }
     
-    public void setProfile (Set<Profile> profile) {
-        this.profile = profile;
+    public void setProfiles (Set<Profile> profiles) {
+        this.profiles = profiles;
     }
 }
 

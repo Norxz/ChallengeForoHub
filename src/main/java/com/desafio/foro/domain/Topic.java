@@ -30,7 +30,7 @@ public class Topic {
     @JoinColumn(name = "course_id")
     private Course course;
     
-    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reply> replies;
     
     public Topic () {
