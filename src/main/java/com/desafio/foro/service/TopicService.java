@@ -1,8 +1,8 @@
 package com.desafio.foro.service;
 
 import com.desafio.foro.domain.Course;
-import com.desafio.foro.domain.Topic;
-import com.desafio.foro.domain.User;
+import com.desafio.foro.domain.topic.Topic;
+import com.desafio.foro.domain.user.User;
 import com.desafio.foro.dto.TopicDTO;
 import com.desafio.foro.repository.CourseRepository;
 import com.desafio.foro.repository.TopicRepository;
@@ -13,7 +13,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class TopicService {

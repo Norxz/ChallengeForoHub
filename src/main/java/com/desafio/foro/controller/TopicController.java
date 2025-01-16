@@ -1,6 +1,6 @@
 package com.desafio.foro.controller;
 
-import com.desafio.foro.domain.Topic;
+import com.desafio.foro.domain.topic.Topic;
 import com.desafio.foro.dto.TopicDTO;
 import com.desafio.foro.service.TopicService;
 import jakarta.validation.Valid;
@@ -10,8 +10,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/topics")

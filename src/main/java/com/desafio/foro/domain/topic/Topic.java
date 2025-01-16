@@ -1,6 +1,9 @@
-package com.desafio.foro.domain;
+package com.desafio.foro.domain.topic;
 
 
+import com.desafio.foro.domain.Course;
+import com.desafio.foro.domain.Reply;
+import com.desafio.foro.domain.user.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;

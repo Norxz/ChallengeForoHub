@@ -1,5 +1,6 @@
-package com.desafio.foro.domain;
+package com.desafio.foro.domain.user;
 
+import com.desafio.foro.domain.Profile;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
