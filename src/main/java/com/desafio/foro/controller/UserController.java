@@ -3,9 +3,7 @@ package com.desafio.foro.controller;
 import com.desafio.foro.domain.user.User;
 import com.desafio.foro.repository.UserRepository;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

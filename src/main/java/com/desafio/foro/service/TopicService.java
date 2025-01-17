@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class TopicService {
@@ -37,6 +38,10 @@ public class TopicService {
     }
     
     public Topic createTopic(TopicDTO topicDTO) {
+        if (topicRepository.existsByTitleAndMessage(topicDTO.getTitle(), topicDTO.getMessage())) {
+            throw new RuntimeException("Ya existe un tópico con el mismo título y mensaje.");
+        }
+        
         User author = userRepository.findById(topicDTO.getAuthorId())
                               .orElseThrow(() -> new RuntimeException("Autor no encontrado."));
         Course course = courseRepository.findById(topicDTO.getCourseId())
@@ -63,5 +68,14 @@ public class TopicService {
     public void deleteTopic(Long id) {
         topicRepository.deleteById(id);
     }
+    
+    public List<Topic> getTop10Topics() {
+        return topicRepository.findTop10ByOrderByCreationDateAsc();
+    }
+    
+    public List<Topic> searchByCourseAndYear(String course, int year) {
+        return topicRepository.findByCourseAndYear(course, year);
+    }
+    
     
 }

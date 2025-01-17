@@ -29,6 +29,7 @@ public class SecurityConfigurations {
                        .authorizeHttpRequests(req -> {
                            req.requestMatchers(HttpMethod.POST,"/login").permitAll()
                                    .requestMatchers (HttpMethod.POST,"/user").permitAll()
+                                   .requestMatchers (HttpMethod.GET,"/topics").permitAll ()
                                    .anyRequest()
                                    .authenticated();
                        })
