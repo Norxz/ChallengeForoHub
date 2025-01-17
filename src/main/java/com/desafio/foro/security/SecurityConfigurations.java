@@ -30,6 +30,7 @@ public class SecurityConfigurations {
                            req.requestMatchers(HttpMethod.POST,"/login").permitAll()
                                    .requestMatchers (HttpMethod.POST,"/user").permitAll()
                                    .requestMatchers (HttpMethod.GET,"/topics").permitAll ()
+                                   .requestMatchers( "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/webjars/**").permitAll()
                                    .anyRequest()
                                    .authenticated();
                        })
