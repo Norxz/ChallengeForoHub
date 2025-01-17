@@ -58,14 +58,22 @@ public class TopicService {
         return topicRepository.save(topic);
     }
     public Topic updateTopic(Long id, Topic updatedTopic) {
-        Topic existingTopic = getTopicById(id);
+        // Verificar si el tópico con el id proporcionado existe
+        Topic existingTopic = topicRepository.findById(id)
+                                      .orElseThrow(() -> new RuntimeException("Tópico no encontrado"));
+        
+        // Actualizar los campos del tópico
         existingTopic.setTitle(updatedTopic.getTitle());
         existingTopic.setMessage(updatedTopic.getMessage());
         existingTopic.setStatus(updatedTopic.getStatus());
+        
+        // Guardar el tópico actualizado
         return topicRepository.save(existingTopic);
     }
     
     public void deleteTopic(Long id) {
+        Topic existingTopic = topicRepository.findById(id)
+                                      .orElseThrow(() -> new RuntimeException("Tópico no encontrado."));
         topicRepository.deleteById(id);
     }
     
